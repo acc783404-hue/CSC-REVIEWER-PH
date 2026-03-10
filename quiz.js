@@ -1861,20 +1861,31 @@ document.addEventListener('DOMContentLoaded', function () {
   // ----------------------------------------------------------
   // AD OVERLAY (5-second countdown)
   // ----------------------------------------------------------
-  function showAd(callback) {
-    dom.adOverlay.classList.remove('hidden');
-    state.adCountdown = 5;
-    dom.adCountdownEl.textContent = state.adCountdown;
+ function showAd(callback) {
+    const section = sections[state.currentSectionIndex];
+    document.getElementById('gcashSection').textContent =
+      section.icon + ' ' + section.title;
 
-    state.adTimer = setInterval(function () {
-      state.adCountdown--;
+    const gcashOverlay = document.getElementById('gcashOverlay');
+    gcashOverlay.classList.remove('hidden');
+
+    document.getElementById('gcashContinueBtn').onclick = function() {
+      gcashOverlay.classList.add('hidden');
+
+      dom.adOverlay.classList.remove('hidden');
+      state.adCountdown = 5;
       dom.adCountdownEl.textContent = state.adCountdown;
-      if (state.adCountdown <= 0) {
-        clearInterval(state.adTimer);
-        dom.adOverlay.classList.add('hidden');
-        if (callback) callback();
-      }
-    }, 1000);
+
+      state.adTimer = setInterval(function () {
+        state.adCountdown--;
+        dom.adCountdownEl.textContent = state.adCountdown;
+        if (state.adCountdown <= 0) {
+          clearInterval(state.adTimer);
+          dom.adOverlay.classList.add('hidden');
+          if (callback) callback();
+        }
+      }, 1000);
+    };
   }
 
   // ----------------------------------------------------------
