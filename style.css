@@ -815,3 +815,67 @@ body {
   #finalScore { font-size: 2.2rem; }
   .score-modal-card { padding: 2rem 1.5rem; }
 }
+#gcashOverlay {
+  position: fixed; inset: 0; z-index: 9999;
+  background: rgba(0,0,0,0.80);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+}
+#gcashOverlay.hidden { display: none; }
+
+.gcash-modal-card {
+  background: white; border-radius: 24px;
+  padding: 28px 24px; max-width: 380px; width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0,53,128,0.25);
+  border: 3px solid #FFD600;
+  animation: gcashPop 0.3s ease;
+  max-height: 90vh; overflow-y: auto;
+}
+@keyframes gcashPop {
+  from { transform: scale(0.88); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+.gcash-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #FFD600, #FFAA00);
+  color: #003580; font-weight: 900; font-size: 13px;
+  letter-spacing: 1px; padding: 6px 18px;
+  border-radius: 50px; margin-bottom: 12px;
+}
+.gcash-title {
+  font-size: 18px; font-weight: 900;
+  color: #003580; line-height: 1.3; margin-bottom: 8px;
+}
+.gcash-title span { color: #00a94f; }
+.gcash-sub {
+  font-size: 13px; color: #666;
+  line-height: 1.5; margin-bottom: 16px;
+}
+.gcash-qr-wrap {
+  background: #f0f4ff; border-radius: 16px;
+  padding: 16px; margin-bottom: 16px;
+  border: 2px dashed #0070cc;
+}
+.gcash-qr-img {
+  width: 200px; height: 200px; border-radius: 12px;
+  object-fit: contain; display: block; margin: 0 auto 8px;
+}
+.gcash-name {
+  font-size: 16px; font-weight: 900;
+  color: #0070cc; margin-bottom: 4px;
+}
+.gcash-scan {
+  font-size: 12px; color: #555; font-weight: 700;
+}
+.gcash-skip-btn {
+  background: linear-gradient(135deg, #003580, #0053c8);
+  color: #FFD600; border: none; padding: 14px 28px;
+  border-radius: 50px; font-size: 15px; font-weight: 900;
+  cursor: pointer; width: 100%; margin-bottom: 8px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.gcash-skip-btn:hover { transform: scale(1.03); opacity: 0.95; }
+.gcash-optional {
+  font-size: 11px; color: #bbb; margin: 0;
+}
